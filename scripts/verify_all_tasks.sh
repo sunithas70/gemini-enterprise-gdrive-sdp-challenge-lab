@@ -29,9 +29,11 @@ echo "================================================================="
 echo " Task 3 & 4: Verify Google Drive Docs & Cymbal Confidential Label"
 echo "================================================================="
 curl -s -H "Authorization: Bearer ${ADC_TOKEN}" \
+  -H "X-Goog-User-Project: ${PROJECT_ID}" \
   "https://www.googleapis.com/drive/v3/files?q=trashed=false&fields=files(id,name,mimeType)" | jq .
 
 curl -s -H "Authorization: Bearer ${ADC_TOKEN}" \
+  -H "X-Goog-User-Project: ${PROJECT_ID}" \
   "https://www.googleapis.com/drive/v3/files/1fxzz5V2PpobNqcHA5ytEpC0KEioSfM8T39lD5nSi_gI/listLabels" | jq .
 
 echo "================================================================="

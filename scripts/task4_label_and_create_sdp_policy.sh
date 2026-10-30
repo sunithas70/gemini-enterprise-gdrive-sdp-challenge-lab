@@ -12,6 +12,7 @@ GCP_TOKEN="$(gcloud auth print-access-token)"
 echo "[1/2] Applying Google Drive Label (${CONFIDENTIAL_LABEL_ID}) to Cymbal_QuantumLedger (${QUANTUM_LEDGER_FILE_ID})..."
 curl -s -X POST \
   -H "Authorization: Bearer ${ADC_TOKEN}" \
+  -H "X-Goog-User-Project: ${PROJECT_ID}" \
   -H "Content-Type: application/json" \
   "https://www.googleapis.com/drive/v3/files/${QUANTUM_LEDGER_FILE_ID}/modifyLabels" \
   -d "{

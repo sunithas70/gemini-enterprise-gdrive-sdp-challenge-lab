@@ -86,6 +86,7 @@ def create_google_doc(title: str, content: str, token: str) -> dict:
         data=body,
         headers={
             "Authorization": f"Bearer {token}",
+            "X-Goog-User-Project": PROJECT_ID,
             "Content-Type": f"multipart/related; boundary={boundary}",
         },
         method="POST",
